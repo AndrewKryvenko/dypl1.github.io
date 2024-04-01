@@ -45,7 +45,7 @@ function calculateTotalPrice() {
     return totalPrice;
 }
 
-// Присваиваем обработчики событий для всех кнопок минус и плюс
+// Присваиваем обработчики событий для всех кнопок минус и плюс, а также кнопок "Добавить"
 for (let i = 0; i < minusBtns.length; i++) {
     minusBtns[i].addEventListener("click", function() {
         updateQuantity(false, i);
@@ -57,15 +57,14 @@ for (let i = 0; i < minusBtns.length; i++) {
         updateMainButton(); // Обновляем отображение главной кнопки
     });
 
-    // Добавляем обработчик события только для кнопок "Добавить"
+    // Обработчики событий для кнопок "Добавить"
     addButton[i].addEventListener("click", function() {
         toggleItem(this, "item" + (i + 1), parseFloat(priceDisplays[i].innerText), i);
         updateMainButton(); // Обновляем отображение главной кнопки
     });
 }
 
-let items = [];
-
+// Функция для добавления товара
 function toggleItem(btn, itemId, price, index) {
     let itemIndex = items.findIndex(i => i.id === itemId);
     let quantity = parseInt(quantityDisplays[index].innerText);
@@ -73,12 +72,16 @@ function toggleItem(btn, itemId, price, index) {
     if (itemIndex === -1) {
         let newItem = { id: itemId, price: price, quantity: quantity };
         items.push(newItem);
-        quantityDisplays[index].innerText = quantity;
     } else {
+        quantity = items[itemIndex].quantity + 1; // Увеличиваем количество товара на 1
         items[itemIndex].quantity = quantity; // Обновляем количество товара
     }
+    
+    // Обновляем отображение количества товара
+    quantityDisplays[index].innerText = quantity;
 
-    let totalPrice = calculateTotalPrice(); // Пересчитываем общую цену
+    // Пересчитываем общую цену
+    let totalPrice = calculateTotalPrice();
 
     if (totalPrice > 0) {
         tg.MainButton.setText(`Загальна вартість: ${totalPrice.toFixed(2)} грн`);
@@ -89,7 +92,6 @@ function toggleItem(btn, itemId, price, index) {
         tg.MainButton.hide();
     }
 }
-
 Telegram.WebApp.onEvent("mainButtonClicked", function(){
     let data = {
         items: items.map(item => ({id: item.id, price: item.price, quantity: item.quantity})),
