@@ -1,0 +1,1164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style.css">
+	<title>Document</title>
+</head>
+<body>
+
+        <div class="sidebar" id="sidebar">
+            <img src="menu.png" alt="Меню" class="food-icon" data-food="Menu">
+            <img src="burger-icon.png" alt="Бургери" class="food-icon" data-food="burgers">
+            <img src="nuggets-icon.png" alt="Нагетси" class="food-icon" data-food="nuggets">
+            <img src="potato-icon.png" alt="Картофля Фрі" class="food-icon" data-food="potato">
+            <img src="sauce-icon.png" alt="Соуси" class="food-icon" data-food="sauce">
+            <img src="dessert-icon.png" alt="Десерти" class="food-icon" data-food="dessert">
+            <img src="drink-icon.png" alt="Напої" class="food-icon" data-food="drinks">
+            <img src="coffee-icon.png" alt="Кава" class="food-icon" data-food="coffee">
+        </div>
+
+    <script>
+        const sidebar = document.getElementById('sidebar');
+        const container = document.querySelector('.container');
+    
+        sidebar.addEventListener('click', (event) => {
+            if (event.target.classList.contains('food-icon')) {
+                const selectedFood = event.target.getAttribute('data-food');
+                const items = document.querySelectorAll('.item');
+    
+                if(selectedFood === "Menu") { // Проверяем, была ли нажата иконка меню
+                    items.forEach((item) => {
+                        item.style.display = 'block'; // Показываем все продукты
+                    });
+                } else {
+                    items.forEach((item) => {
+                        if (item.classList.contains(selectedFood)) {
+                            item.style.display = 'block'; // Показываем соответствующий продукт
+                        } else {
+                            item.style.display = 'none'; // Скрываем остальные продукты
+                        }
+                    });
+                }
+            }
+        });
+    </script>
+    
+	<div class="container">
+		<div class="inner">
+			<div class="item burgers" data-initial-price="58" id="item1"> <!-- Добавляем атрибут data-price с ценой -->
+                <img src="1.jpg" alt="" class="img">
+                <figcaption>Гамбургер</figcaption> 
+                <span class="price">58.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn1">Додати</button> <!-- Изменяем id на класс addButton -->
+            </div>
+
+            <div class="item burgers" data-initial-price="68" id="item2">
+                <img src="2.jpg" alt="" class="img">
+                <figcaption>Чізбургер</figcaption>
+                <span class="price">68.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn2">Додати</button>
+            </div>
+
+            <div class="item burgers" data-initial-price="105" id="item3">
+                <img src="3.jpg" alt="" class="img">
+                <figcaption>Дабл Чізбургер</figcaption>
+                <span class="price">105.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn3">Додати</button>
+            </div>
+
+            <div class="item burgers" data-initial-price="125" id="item4">
+                <img src="4.jpg" alt="" class="img">
+                <figcaption>Біг Мак</figcaption>
+                <span class="price">125.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn4">Додати</button>
+            </div>
+
+            <div class="item burgers" data-initial-price="196" id="item5">
+                <img src="5.jpg" alt="" class="img">
+                <figcaption>Дабл Біг Мак</figcaption>
+                <span class="price">196.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn5">Додати</button>
+            </div>
+
+            <div class="item burgers" data-initial-price="108" id="item6">
+                <img src="6.jpg" alt="" class="img">
+                <figcaption>МакЧікен</figcaption>
+                <span class="price">108.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn6">Додати</button>
+            </div>
+
+            <div class="item burgers" data-initial-price="209" id="item7">
+                <img src="7.jpg" alt="" class="img">
+                <figcaption>Біг Тейсті</figcaption>
+                <span class="price">209.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn7">Додати</button>
+            </div>
+
+            <div class="item burgers" data-initial-price="106" id="item8">
+                <img src="8.jpg" alt="" class="img">
+                <figcaption>Філе-о-фіш</figcaption>
+                <span class="price">106.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn8">Додати</button>
+            </div>
+
+            <div class="item burgers" data-initial-price="141" id="item9">
+                <img src="9.jpg" alt="" class="img">
+                <figcaption>Роял Чізбургер</figcaption>
+                <span class="price">141.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn9">Додати</button>
+            </div>
+
+            <div class="item burgers" data-initial-price="214" id="item10">
+                <img src="10.jpg" alt="" class="img">
+                <figcaption>Дабл Роял <br> Чізбургер</figcaption>
+                <span class="price">214.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn10">Додати</button>
+            </div>
+
+            <div class="item burgers" data-initial-price="213" id="item11">
+                <img src="11.jpg" alt="" class="img">
+                <figcaption>Біг Біф Чіз</figcaption>
+                <span class="price">213.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn11">Додати</button>
+            </div>
+
+            <div class="item burgers" data-initial-price="40" id="item12">
+                <img src="12.jpg" alt="" class="img">
+                <figcaption>МакТост із сиром</figcaption>
+                <span class="price">40 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn12">Додати</button>
+            </div>
+
+            <div class="item burgers" data-initial-price="125" id="item13">
+                <img src="13.jpg" alt="" class="img">
+                <figcaption>Чікен Рол</figcaption>
+                <span class="price">125.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn13">Додати</button>
+            </div>
+
+            <div class="item burgers" data-initial-price="136" id="item14">
+                <img src="14.jpg" alt="" class="img">
+                <figcaption>Фіш Рол</figcaption>
+                <span class="price">136.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn14">Додати</button>
+            </div>
+
+            <div class="item potato" data-initial-price="79" id="item15">
+                <img src="k1.jpg" alt="" class="img">
+                <figcaption>Картопля <br> Фрі вел.</figcaption>
+                <span class="price">79.00грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn15">Додати</button>
+            </div>
+
+            <div class="item potato" data-initial-price="64" id="item16">
+                <img src="k2.jpg" alt="" class="img">
+                <figcaption>Картопля <br> Фрі сер.</figcaption>
+                <span class="price">64.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn16">Додати</button>
+            </div>
+
+            <div class="item potato" data-initial-price="52" id="item17">
+                <img src="k3.jpg" alt="" class="img">
+                <figcaption>Картопля Фрі <br> маленька</figcaption>
+                <span class="price">52.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn17">Додати</button>
+            </div>
+
+            <div class="item potato" data-initial-price="90" id="item18">
+                <img src="k4.jpg" alt="" class="img">
+                <figcaption>Картопляні Діпи</figcaption>
+                <span class="price">90.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn18">Додати</button>
+            </div>
+
+            <div class="item nuggets" data-initial-price="64" id="item19">
+                <img src="ng1.jpg" alt="" class="img">
+                <figcaption>Чікен <br> МакНагетс, <br> 4шт</figcaption>
+                <span class="price">64.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn19">Додати</button>
+            </div>
+
+            <div class="item nuggets" data-initial-price="91" id="item20">
+                <img src="ng2.jpg" alt="" class="img">
+                <figcaption>Чікен <br> МакНагетс, <br> 6шт</figcaption>
+                <span class="price">91.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn20">Додати</button>
+            </div>
+
+            <div class="item nuggets" data-initial-price="129" id="item21">
+                <img src="ng3.jpg" alt="" class="img">
+                <figcaption>Чікен <br> МакНагетс, <br> 9шт</figcaption>
+                <span class="price">129.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn21">Додати</button>
+            </div>
+
+            <div class="item nuggets" data-initial-price="273" id="item22">
+                <img src="ng4.jpg" alt="" class="img">
+                <figcaption>Чікен <br> МакНагетс, <br> 20шт</figcaption>
+                <span class="price">273.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn22">Додати</button>
+            </div>
+
+            <div class="item nuggets" data-initial-price="86" id="item23">
+                <img src="ng5.jpg" alt="" class="img">
+                <figcaption>Курячі Стріпси, <br> 3шт</figcaption>
+                <span class="price">86.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn23">Додати</button>
+            </div>
+
+            <div class="item nuggets" data-initial-price="148" id="item24">
+                <img src="ng6.jpg" alt="" class="img">
+                <figcaption>Курячі Стріпси, <br> 6шт</figcaption>
+                <span class="price">148.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn24">Додати</button>
+            </div>
+
+            <div class="item nuggets" data-initial-price="273" id="item25">
+                <img src="ng7.jpg" alt="" class="img">
+                <figcaption>Курячі Стріпси, <br>  12шт</figcaption>
+                <span class="price">273.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn25">Додати</button>
+            </div>
+
+            <div class="item nuggets" data-initial-price="273" id="item26">
+                <img src="ng8.jpg" alt="" class="img">
+                <figcaption>Стріпси <br> Чікен Бокс</figcaption>
+                <span class="price">273.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn26">Додати</button>
+            </div>
+
+            <div class="item nuggets" data-initial-price="96" id="item27">
+                <img src="ng9.jpg" alt="" class="img">
+                <figcaption>Хрусткі курячі <br> крильця 4шт </figcaption>
+                <span class="price">96.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn27">Додати</button>
+            </div>
+
+            <div class="item nuggets" data-initial-price="148" id="item28">
+                <img src="ng10.jpg" alt="" class="img">
+                <figcaption>Хрусткі курячі <br>крильця 6 шт</figcaption>
+                <span class="price">148.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn28">Додати</button>
+            </div>
+
+            <div class="item nuggets" data-initial-price="229" id="item29">
+                <img src="ng11.jpg" alt="" class="img">
+                <figcaption>Хрусткі курячі <br> крильця 10 шт</figcaption>
+                <span class="price">229.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn29">Додати</button>
+            </div>
+
+            <div class="item nuggets" data-initial-price="273" id="item30">
+                <img src="ng12.jpg" alt="" class="img">
+                <figcaption>Крила Чікен Бокс</figcaption>
+                <span class="price">273.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn30">Додати</button>
+            </div>
+
+            <div class="item nuggets" data-initial-price="273" id="item31">
+                <img src="ng13.jpg" alt="" class="img">
+                <figcaption>Мікс Чікен Бокс</figcaption>
+                <span class="price">273.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn31">Додати</button>
+            </div>
+
+            <div class="item sauce" data-initial-price="27" id="item32">
+                <img src="s1.jpg" alt="" class="img">
+                <figcaption>Соус Хабанеро</figcaption>
+                <span class="price">27.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn32">Додати</button>
+            </div>
+
+            <div class="item sauce" data-initial-price="27" id="item33">
+                <img src="s2.jpg" alt="" class="img">
+                <figcaption>Соус із сиром <br> Дорблю</figcaption>
+                <span class="price">27.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn33">Додати</button>
+            </div>
+
+            <div class="item sauce" data-initial-price="16" id="item34">
+                <img src="s3.jpg" alt="" class="img">
+                <figcaption>Соус <br> кисло-солодкий</figcaption>
+                <span class="price">16.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn34">Додати</button>
+            </div>
+
+            <div class="item sauce" data-initial-price="16" id="item35">
+                <img src="s4.jpg" alt="" class="img">
+                <figcaption>Соус Барбекю</figcaption>
+                <span class="price">16.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn35">Додати</button>
+            </div>
+
+            <div class="item sauce" data-initial-price="16" id="item36">
+                <img src="s5.jpg" alt="" class="img">
+                <figcaption>Кетчуп</figcaption>
+                <span class="price">16.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn36">Додати</button>
+            </div>
+
+            <div class="item sauce" data-initial-price="16" id="item37">
+                <img src="s6.jpg" alt="" class="img">
+                <figcaption>Майонез</figcaption>
+                <span class="price">16.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn37">Додати</button>
+            </div>
+
+            <div class="item sauce" data-initial-price="16" id="item38">
+                <img src="s7.jpg" alt="" class="img">
+                <figcaption>Соус Гірчичний</figcaption>
+                <span class="price">16.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn38">Додати</button>
+            </div>
+
+            <div class="item sauce" data-initial-price="16" id="item39">
+                <img src="s8.jpg" alt="" class="img">
+                <figcaption>Соус Карі</figcaption>
+                <span class="price">16.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn39">Додати</button>
+            </div>
+
+            <div class="item sauce" data-initial-price="16" id="item40">
+                <img src="s9.jpg" alt="" class="img">
+                <figcaption>Соус Сирний</figcaption>
+                <span class="price">16.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn40">Додати</button>
+            </div>
+
+            <div class="item sauce" data-initial-price="16" id="item41">
+                <img src="s10.jpg" alt="" class="img">
+                <figcaption>Соус <br> Журавлиновий</figcaption>
+                <span class="price">16.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn41">Додати</button>
+            </div>
+
+            <div class="item sauce" data-initial-price="19" id="item42">
+                <img src="s11.jpg" alt="" class="img">
+                <figcaption>Мед</figcaption>
+                <span class="price">19.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn42">Додати</button>
+            </div>
+
+            <div class="item sauce" data-initial-price="10" id="item43">
+                <img src="s12.jpg" alt="" class="img">
+                <figcaption>Сироп <br> "Ірландський <br> крем"</figcaption>
+                <span class="price">10.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn43">Додати</button>
+            </div>
+
+            <div class="item sauce" data-initial-price="10" id="item44">
+                <img src="s13.jpg" alt="" class="img">
+                <figcaption>Сироп <br> "Смажений <br> лісовий горіх"</figcaption>
+                <span class="price">10.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn44">Додати</button>
+            </div>
+
+            <div class="item dessert" data-initial-price="64" id="item45">
+                <img src="d1.jpg" alt="" class="img">
+                <figcaption>Міні донати з <br> шоколадом</figcaption>
+                <span class="price">64.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn45">Додати</button>
+            </div>
+
+            <div class="item dessert" data-initial-price="53" id="item46">
+                <img src="d2.jpg" alt="" class="img">
+                <figcaption>МакПиріг Крем-<br>Чорниця</figcaption>
+                <span class="price">53.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn46">Додати</button>
+            </div>
+
+            <div class="item dessert" data-initial-price="46" id="item47">
+                <img src="d3.jpg" alt="" class="img">
+                <figcaption>Морозиво ріжок</figcaption>
+                <span class="price">46.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn47">Додати</button>
+            </div>
+
+            <div class="item dessert" data-initial-price="64" id="item48">
+                <img src="d4.jpg" alt="" class="img">
+                <figcaption>МАКСАНДІ <br> Шоколад <br> у пластиковому <br> стаканчику</figcaption>
+                <span class="price">64.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn48">Додати</button>
+            </div>
+
+            <div class="item dessert" data-initial-price="64" id="item49">
+                <img src="d5.jpg" alt="" class="img">
+                <figcaption>МАКСАНДІ <br> Карамель <br> у пластиковому <br> стаканчику</figcaption>
+                <span class="price">64.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn49">Додати</button>
+            </div>
+
+            <div class="item dessert" data-initial-price="64" id="item50">
+                <img src="d6.jpg" alt="" class="img">
+                <figcaption>МАКСАНДІ <br> Полуниця <br> у пластиковому <br> стаканчику</figcaption>
+                <span class="price">64.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn50">Додати</button>
+            </div>
+
+            <div class="item dessert" data-initial-price="60" id="item51">
+                <img src="d7.jpg" alt="" class="img">
+                <figcaption>МАКСАНДІ <br> Шоколад <br> у вафельному <br> стаканчику</figcaption>
+                <span class="price">60.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn51">Додати</button>
+            </div>
+
+            <div class="item dessert" data-initial-price="60" id="item52">
+                <img src="d8.jpg" alt="" class="img">
+                <figcaption>МАКСАНДІ <br> Карамель <br> у вафельному <br> стаканчику</figcaption>
+                <span class="price">60.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn52">Додати</button>
+            </div>
+
+            <div class="item dessert" data-initial-price="60" id="item53">
+                <img src="d9.jpg" alt="" class="img">
+                <figcaption>МАКСАНДІ <br> Полуниця <br> у вафельному <br> стаканчику</figcaption>
+                <span class="price">60.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn53">Додати</button>
+            </div>
+
+            <div class="item dessert" data-initial-price="75" id="item54">
+                <img src="d10.jpg" alt="" class="img">
+                <figcaption>МАКФЛУРІ <br>КІТ КАТ <br> Шоколад</figcaption>
+                <span class="price">75.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn54">Додати</button>
+            </div>
+
+            <div class="item dessert" data-initial-price="75" id="item55">
+                <img src="d11.jpg" alt="" class="img">
+                <figcaption>МАКФЛУРІ <br>КІТ КАТ <br> Карамель</figcaption>
+                <span class="price">75.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn55">Додати</button>
+            </div>
+
+            <div class="item dessert" data-initial-price="75" id="item56">
+                <img src="d12.jpg" alt="" class="img">
+                <figcaption>МАКФЛУРІ <br>КІТ КАТ <br> Полуниця</figcaption>
+                <span class="price">75.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn56">Додати</button>
+            </div>
+
+            <div class="item dessert" data-initial-price="71" id="item57">
+                <img src="d13.jpg" alt="" class="img">
+                <figcaption>МАКШЕЙК <br> Шоколад</figcaption>
+                <span class="price">71.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn57">Додати</button>
+            </div>
+
+            <div class="item dessert" data-initial-price="71" id="item58">
+                <img src="d14.jpg" alt="" class="img">
+                <figcaption>МАКШЕЙК <br> Ваніль</figcaption>
+                <span class="price">71.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn58">Додати</button>
+            </div>
+
+            <div class="item dessert" data-initial-price="71" id="item59">
+                <img src="d15.jpg" alt="" class="img">
+                <figcaption>МАКШЕЙК <br> Полуниця</figcaption>
+                <span class="price">71.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn59">Додати</button>
+            </div>
+
+            <div class="item dessert" data-initial-price="46" id="item60">
+                <img src="d16.jpg" alt="" class="img">
+                <figcaption>МакПиріг <br> вишневий</figcaption>
+                <span class="price">46.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn60">Додати</button>
+            </div>
+
+            <div class="item dessert" data-initial-price="53" id="item61">
+                <img src="d17.jpg" alt="" class="img">
+                <figcaption>Круасан <br> мигдалевий</figcaption>
+                <span class="price">53.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn61">Додати</button>
+            </div>
+
+            <div class="item dessert" data-initial-price="53" id="item62">
+                <img src="d18.jpg" alt="" class="img">
+                <figcaption>Круасан з <br> крем-какао</figcaption>
+                <span class="price">53.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn62">Додати</button>
+            </div>
+
+            <div class="item drinks" data-initial-price="42" id="item63">
+                <img src="dr1.jpg" alt="" class="img">
+                <figcaption>Кока-Кола <br> Велика</figcaption>
+                <span class="price">42.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn63">Додати</button>
+            </div>
+
+            <div class="item drinks" data-initial-price="35" id="item64">
+                <img src="dr2.jpg" alt="" class="img">
+                <figcaption>Кока-Кола <br> Середня </figcaption>
+                <span class="price">35.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn64">Додати</button>
+            </div>
+
+            <div class="item drinks" data-initial-price="29" id="item65">
+                <img src="dr3.jpg" alt="" class="img">
+                <figcaption>Кока-Кола <br> Мала </figcaption>
+                <span class="price">29.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn65">Додати</button>
+            </div>
+
+            <div class="item drinks" data-initial-price="42" id="item66">
+                <img src="dr4.jpg" alt="" class="img">
+                <figcaption>Фанта <br> Велика</figcaption>
+                <span class="price">42.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn66">Додати</button>
+            </div>
+
+            <div class="item drinks" data-initial-price="35" id="item67">
+                <img src="dr5.jpg" alt="" class="img">
+                <figcaption>Фанта <br> Середня</figcaption>
+                <span class="price">35.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn67">Додати</button>
+            </div>
+
+            <div class="item drinks" data-initial-price="29" id="item68">
+                <img src="dr6.jpg" alt="" class="img">
+                <figcaption>Фанта <br> Мала</figcaption>
+                <span class="price">29.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn68">Додати</button>
+            </div>
+
+            <div class="item drinks" data-initial-price="42" id="item69">
+                <img src="dr7.jpg" alt="" class="img">
+                <figcaption>Спрайт <br> Великий </figcaption>
+                <span class="price">42.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn69">Додати</button>
+            </div>
+
+            <div class="item drinks" data-initial-price="35" id="item70">
+                <img src="dr8.jpg" alt="" class="img">
+                <figcaption>Спрайт <br> Середній </figcaption>
+                <span class="price">35.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn70">Додати</button>
+            </div>
+
+            <div class="item drinks" data-initial-price="29" id="item71">
+                <img src="dr9.jpg" alt="" class="img">
+                <figcaption>Спрайт <br> Малий</figcaption>
+                <span class="price">29.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn71">Додати</button>
+            </div>
+
+            <div class="item drinks" data-initial-price="21" id="item72">
+                <img src="dr10.jpg" alt="" class="img">
+                <figcaption>ВОДА <br> НЕГАЗОВАНА <br> Велика</figcaption>
+                <span class="price">21.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn72">Додати</button>
+            </div>
+
+            <div class="item drinks" data-initial-price="19" id="item73">
+                <img src="dr11.jpg" alt="" class="img">
+                <figcaption>ВОДА <br> НЕГАЗОВАНА <br> Мала</figcaption>
+                <span class="price">19.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn73">Додати</button>
+            </div>
+
+            <div class="item drinks" data-initial-price="21" id="item74">
+                <img src="dr12.jpg" alt="" class="img">
+                <figcaption>ВОДА <br> ГАЗОВАНА <br> Велика</figcaption>
+                <span class="price">21.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn74">Додати</button>
+            </div>
+
+            <div class="item drinks" data-initial-price="19" id="item75">
+                <img src="dr13.jpg" alt="" class="img">
+                <figcaption>ВОДА <br> ГАЗОВАНА <br> Мала</figcaption>
+                <span class="price">19.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn75">Додати</button>
+            </div>
+
+            <div class="item drinks" data-initial-price="" id="item76">
+                <img src="dr14.jpg" alt="" class="img">
+                <figcaption>Апельсиновий <br> сік <br> Великий</figcaption>
+                <span class="price">42.00   грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn76">Додати</button>
+            </div>
+
+            <div class="item drinks" data-initial-price="32" id="item77">
+                <img src="dr15.jpg" alt="" class="img">
+                <figcaption>Апельсиновий <br> сік <br> Маленький</figcaption>
+                <span class="price">32.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn77">Додати</button>
+            </div>
+
+            <div class="item drinks" data-initial-price="27" id="item78">
+                <img src="dr16.jpg" alt="" class="img">
+                <figcaption>Сік "Галіція" <br> яблучний</figcaption>
+                <span class="price">27.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn78">Додати</button>
+            </div>
+
+            <div class="item drinks" data-initial-price="27" id="item79">
+                <img src="dr17.jpg" alt="" class="img">
+                <figcaption>Сік "Галіція" <br> яблучно - <br> грушевий</figcaption>
+                <span class="price">27.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn79">Додати</button>
+            </div>
+            
+            <div class="item coffee" data-initial-price="60" id="item80">
+                <img src="c1.jpg" alt="" class="img">
+                <figcaption>Кава "Еспресо"</figcaption>
+                <span class="price">60.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn80">Додати</button>
+            </div>
+            
+            <div class="item coffee" data-initial-price="65" id="item81">
+                <img src="c2.jpg" alt="" class="img">
+                <figcaption>Кава подвійне <br> еспресо</figcaption>
+                <span class="price">65.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn81">Додати</button>
+            </div>
+
+            <div class="item coffee" data-initial-price="56" id="item82">
+                <img src="c3.jpg" alt="" class="img">
+                <figcaption>Кава <br>"Американо" <br> маленька</figcaption>
+                <span class="price">56.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn82">Додати</button>
+            </div>
+
+            <div class="item coffee" data-initial-price="62" id="item83">
+                <img src="c4.jpg" alt="" class="img">
+                <figcaption>Кава <br> "Американо <br> з молоком" <br> маленька</figcaption>
+                <span class="price">62.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn83">Додати</button>
+            </div>
+
+            <div class="item coffee" data-initial-price="62" id="item84">
+                <img src="c5.jpg" alt="" class="img">
+                <figcaption>Кава <br> "Капучино" <br> маленька</figcaption>
+                <span class="price">62.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn84">Додати</button>
+            </div>
+
+            <div class="item coffee" data-initial-price="62" id="item85">
+                <img src="c6.jpg" alt="" class="img">
+                <figcaption>Кава <br> "Лате" <br> маленька</figcaption>
+                <span class="price">62.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn85">Додати</button>
+            </div>
+
+            <div class="item coffee" data-initial-price="67" id="item86">
+                <img src="c7.jpg" alt="" class="img">
+                <figcaption>Кава <br>"Американо" <br> класік</figcaption>
+                <span class="price">67.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn86">Додати</button>
+            </div>
+
+            <div class="item coffee" data-initial-price="62" id="item87">
+                <img src="c8.jpg" alt="" class="img">
+                <figcaption>Кава <br> "Американо <br> з  молоком" <br> класік</figcaption>
+                <span class="price">62.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn87">Додати</button>
+            </div>
+
+            <div class="item coffee" data-initial-price="62" id="item88">
+                <img src="c9.jpg" alt="" class="img">
+                <figcaption>Кава <br> "Капучино" <br> класік</figcaption>
+                <span class="price">62.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn88">Додати</button>
+            </div>
+
+            <div class="item coffee" data-initial-price="62" id="item89">
+                <img src="c10.jpg" alt="" class="img">
+                <figcaption>Кава <br> "Лате" <br> класік</figcaption>
+                <span class="price">62.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn89">Додати</button>
+            </div>
+
+            <div class="item coffee" data-initial-price="67" id="item90">
+                <img src="c11.jpg" alt="" class="img">
+                <figcaption>Кава <br> "Флет Вайт"</figcaption>
+                <span class="price">67.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn90">Додати</button>
+            </div>
+
+            <div class="item coffee" data-initial-price="62" id="item91">
+                <img src="c12.jpg" alt="" class="img">
+                <figcaption>Мокко класік</figcaption>
+                <span class="price">62.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn91">Додати</button>
+            </div>
+
+            <div class="item coffee" data-initial-price="72" id="item92">
+                <img src="c13.jpg" alt="" class="img">
+                <figcaption>Лате Брауні</figcaption>
+                <span class="price">72.00 грн</span>
+                <div class="quantity-container">
+                    <button class="minus-btn" id="minusBtn1">-</button>
+                    <span class="quantity" id="quantity1">0</span>
+                    <button class="plus-btn" id="plusBtn1">+</button>
+                </div>
+                <button class="btn addButton" id="btn92">Додати</button>
+            </div>
+		</div>
+	</div>
+
+
+
+
+	<div class="usercard" id="usercard"></div>
+
+	<script src="https://telegram.org/js/telegram-web-app.js"></script>
+	<script src="app.js"></script>
+</body>
+</html>
