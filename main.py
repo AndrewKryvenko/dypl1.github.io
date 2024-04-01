@@ -5,7 +5,7 @@ from aiogram import types
 from aiogram import Bot, Dispatcher
 from aiogram.types import ReplyKeyboardMarkup
 
-bot = Bot(token="YOUR_TELEGRAM_BOT_TOKEN")
+bot = Bot(token="6442089419:AAG4q9RlLlpJ7w4HEKusOqTXUA18MSMaK_w")
 dp = Dispatcher(bot)
 
 
