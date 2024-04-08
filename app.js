@@ -64,7 +64,11 @@ for (let i = 0; i < minusBtns.length; i++) {
     });
 }
 
-
+addButton[i].addEventListener("click", function() {
+    let index = parseInt(this.id.replace("btn", "")) - 1; // Получаем индекс товара
+    toggleItem(this, "item" + (index + 1), parseFloat(priceDisplays[index].innerText), index);
+    updateMainButton(); // Обновляем отображение главной кнопки
+});
 
 let items = [];
 
