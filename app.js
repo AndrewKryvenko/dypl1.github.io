@@ -5,6 +5,7 @@ tg.expand();
 tg.MainButton.textColor = '#FFFFFF';
 tg.MainButton.color = '#ffbb00';
 
+
 // Находим все кнопки minusBtn и plusBtn
 let minusBtns = document.querySelectorAll('.minus-btn');
 let plusBtns = document.querySelectorAll('.plus-btn');
