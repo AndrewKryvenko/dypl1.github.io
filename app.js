@@ -75,10 +75,12 @@ function toggleItem(btn, itemId, price, index) {
     if (itemIndex === -1) {
         let newItem = { id: itemId, price: price, quantity: quantity };
         items.push(newItem);
-        quantityDisplay.innerText = quantity;
     } else {
         items[itemIndex].quantity = quantity; // Обновляем количество товара
     }
+    
+    // Обновляем количество товара на отображении
+    quantityDisplay.innerText = quantity;
     
     let totalPrice = calculateTotalPrice(); // Пересчитываем общую цену
 
