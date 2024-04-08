@@ -64,28 +64,18 @@ for (let i = 0; i < minusBtns.length; i++) {
     });
 }
 
-addButton[i].addEventListener("click", function() {
-    let index = parseInt(this.id.replace("btn", "")) - 1; // Получаем индекс товара
-    toggleItem(this, "item" + (index + 1), parseFloat(priceDisplays[index].innerText), index);
-    updateMainButton(); // Обновляем отображение главной кнопки
-});
-
 let items = [];
 
 function toggleItem(btn, itemId, price, index) {
     let itemIndex = items.findIndex(i => i.id === itemId);
-    let quantity = parseInt(quantityDisplays[index].innerText);
 
     if (itemIndex === -1) {
-        let newItem = { id: itemId, price: price, quantity: 0 }; // Устанавливаем начальное количество в 0
+        let newItem = { id: itemId, price: price, quantity: quantity };
         items.push(newItem);
-        itemIndex = items.length - 1; // Получаем индекс только что добавленного элемента
+        quantityDisplay.innerText = quantity;
+    } else {
+        items[itemIndex].quantity = quantity; // Обновляем количество товара
     }
-
-    // Обновляем количество товара в массиве items
-    items[itemIndex].quantity = quantity;
-
-    let totalPrice = calculateTotalPrice(); // Пересчитываем общую цену
 
     if (totalPrice > 0) {
         tg.MainButton.setText(`Загальна вартість: ${totalPrice.toFixed(2)} грн`);
