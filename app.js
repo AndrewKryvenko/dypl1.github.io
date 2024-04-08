@@ -12,31 +12,84 @@ let quantityDisplays = document.querySelectorAll('.quantity');
 let addButton = document.querySelectorAll('.addButton');
 let priceDisplays = document.querySelectorAll('.price');
 
+// Функция для обновления количества товара
+function updateQuantity(increment, index) {
+    let quantity = parseInt(quantityDisplays[index].innerText);
+    if (increment) {
+        quantity++;
+    } else {
+        if (quantity > 0) {
+            quantity--;
+        }
+    }
+    quantityDisplays[index].innerText = quantity;
+}
+
+function updateMainButton() {
+    let totalPrice = calculateTotalPrice();
+    if (totalPrice > 0) {
+        tg.MainButton.setText(`Загальна вартість: ${totalPrice.toFixed(2)} грн`);
+        if (!tg.MainButton.isVisible) {
+            tg.MainButton.show();
+        }
+    } else {
+        tg.MainButton.hide();
+    }
+}
+
+function calculateTotalPrice() {
+    let totalPrice = 0;
+    items.forEach(item => {
+        totalPrice += item.price * item.quantity;
+    });
+    return totalPrice;
+}
+
+// Присваиваем обработчики событий для всех кнопок минус и плюс
+for (let i = 0; i < minusBtns.length; i++) {
+    minusBtns[i].addEventListener("click", function() {
+        updateQuantity(false, i);
+        updateMainButton(); // Обновляем отображение главной кнопки
+    });
+
+    plusBtns[i].addEventListener("click", function() {
+        updateQuantity(true, i);
+        updateMainButton(); // Обновляем отображение главной кнопки
+    });
+
+    // Добавляем обработчик события только для кнопок "Добавить"
+    addButton[i].addEventListener("click", function() {
+        toggleItem(this, "item" + (i + 1), parseFloat(priceDisplays[i].innerText), i);
+        updateMainButton(); // Обновляем отображение главной кнопки
+    });
+}
+
 
 
 let items = [];
 
-function toggleItem(btn, itemId) {
-	let itemIndex = items.findIndex(i => i.id === itemId);
-	let quantity = parseInt(btn.parentElement.querySelector('.quantity').innerText);
+function toggleItem(btn, itemId, price, index) {
+    let itemIndex = items.findIndex(i => i.id === itemId);
+    let quantity = parseInt(quantityDisplays[index].innerText);
 
-	if (itemIndex === -1) {
-		let newItem = { id: itemId, price: parseFloat(btn.parentElement.querySelector('.price').innerText), quantity: quantity };
-		items.push(newItem);
-	} else {
-		items[itemIndex].quantity = quantity;
-	}
+    if (itemIndex === -1) {
+        let newItem = { id: itemId, price: price, quantity: quantity };
+        items.push(newItem);
+        quantityDisplay.innerText = quantity;
+    } else {
+        items[itemIndex].quantity = quantity; // Обновляем количество товара
+    }
+    
+    let totalPrice = calculateTotalPrice(); // Пересчитываем общую цену
 
-	let totalPrice = calculateTotalPrice();
-
-	if (totalPrice > 0) {
-		tg.MainButton.setText(`Загальна вартість: ${totalPrice.toFixed(2)} грн`);
-		if (!tg.MainButton.isVisible) {
-			tg.MainButton.show();
-		}
-	} else {
-		tg.MainButton.hide();
-	}
+    if (totalPrice > 0) {
+        tg.MainButton.setText(`Загальна вартість: ${totalPrice.toFixed(2)} грн`);
+        if (!tg.MainButton.isVisible) {
+            tg.MainButton.show();
+        }
+    } else {
+        tg.MainButton.hide();
+    }
 }
 
 Telegram.WebApp.onEvent("mainButtonClicked", function(){
