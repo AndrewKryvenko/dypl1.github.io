@@ -5,6 +5,13 @@ tg.expand();
 tg.MainButton.textColor = '#FFFFFF';
 tg.MainButton.color = '#ffbb00';
 
+// Переменная для хранения ID чата
+let chatId;
+
+// Функция для установки ID чата
+function setChatId(id) {
+    chatId = id;
+}
 
 // Находим все кнопки minusBtn и plusBtn
 let minusBtns = document.querySelectorAll('.minus-btn');
@@ -65,8 +72,6 @@ for (let i = 0; i < minusBtns.length; i++) {
     });
 }
 
-
-
 let items = [];
 
 function toggleItem(btn, itemId, price, index) {
@@ -95,6 +100,7 @@ function toggleItem(btn, itemId, price, index) {
 
 Telegram.WebApp.onEvent("mainButtonClicked", function(){
     let data = {
+        chat_id: chatId, // Передаем ID чата
         items: items.map(item => ({id: item.id, price: item.price, quantity: item.quantity})),
         totalPrice: calculateTotalPrice(),
     };
