@@ -86,6 +86,13 @@ function toggleItem(btn, itemId, price, index) {
         items[itemIndex].quantity = quantity; // Обновляем количество товара
     }
     
+    if (quantity === 0) {
+       addButton.innerText = "Додати";
+    } else {
+        addButton.innerText = "Змінити";
+    }
+
+
     let totalPrice = calculateTotalPrice(); // Пересчитываем общую цену
 
     if (totalPrice > 0) {
@@ -97,6 +104,7 @@ function toggleItem(btn, itemId, price, index) {
         tg.MainButton.hide();
     }
 }
+
 
 Telegram.WebApp.onEvent("mainButtonClicked", function(){
     let data = {
