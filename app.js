@@ -81,18 +81,12 @@ function toggleItem(btn, itemId, price, index) {
     if (itemIndex === -1) {
         let newItem = { id: itemId, price: price, quantity: quantity };
         items.push(newItem);
+        quantityDisplay.innerText = quantity;
     } else {
-        items[itemIndex].quantity = quantity;
+        items[itemIndex].quantity = quantity; // Обновляем количество товара
     }
-
-    // Обновляем текст кнопки в зависимости от количества товара
-    if (quantity === 0) {
-        btn.innerText = "Додати";
-    } else {
-        btn.innerText = "Змінити";
-    }
-
-    let totalPrice = calculateTotalPrice();
+    
+    let totalPrice = calculateTotalPrice(); // Пересчитываем общую цену
 
     if (totalPrice > 0) {
         tg.MainButton.setText(`Загальна вартість: ${totalPrice.toFixed(2)} грн`);
@@ -102,6 +96,7 @@ function toggleItem(btn, itemId, price, index) {
     } else {
         tg.MainButton.hide();
     }
+}
 
 Telegram.WebApp.onEvent("mainButtonClicked", function(){
     let data = {
