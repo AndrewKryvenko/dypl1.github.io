@@ -64,12 +64,19 @@ for (let i = 0; i < minusBtns.length; i++) {
         updateQuantity(true, i);
         updateMainButton(); // Обновляем отображение главной кнопки
     });
+}
 
-    // Добавляем обработчик события только для кнопок "Добавить"
-    addButton[i].addEventListener("click", function() {
-        toggleItem(this, "item" + (i + 1), parseFloat(priceDisplays[i].innerText), i);
+// Функция-обработчик для кнопки "Добавить"
+function addButtonHandler(index) {
+    return function() {
+        toggleItem(this, "item" + (index + 1), parseFloat(priceDisplays[index].innerText), index);
         updateMainButton(); // Обновляем отображение главной кнопки
-    });
+    };
+}
+
+// Добавляем обработчик события только для кнопок "Добавить"
+for (let i = 0; i < addButton.length; i++) {
+    addButton[i].addEventListener("click", addButtonHandler(i));
 }
 
 let items = [];
