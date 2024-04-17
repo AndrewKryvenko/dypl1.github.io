@@ -53,19 +53,6 @@ function calculateTotalPrice() {
     return totalPrice;
 }
 
-// Присваиваем обработчики событий для всех кнопок минус и плюс
-for (let i = 0; i < minusBtns.length; i++) {
-    minusBtns[i].addEventListener("click", function() {
-        updateQuantity(false, i);
-        updateMainButton(); // Обновляем отображение главной кнопки
-    });
-
-    plusBtns[i].addEventListener("click", function() {
-        updateQuantity(true, i);
-        updateMainButton(); // Обновляем отображение главной кнопки
-    });
-}
-
 // Функция-обработчик для кнопки "Добавить"
 function addButtonHandler(index) {
     return function() {
@@ -111,7 +98,6 @@ function toggleItem(btn, itemId, price, index) {
         tg.MainButton.hide();
     }
 }
-
 
 Telegram.WebApp.onEvent("mainButtonClicked", function(){
     let data = {
