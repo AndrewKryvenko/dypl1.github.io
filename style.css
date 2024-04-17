@@ -1,3 +1,13 @@
+# Mobile first
+input, textarea, select {
+  font-size: 16px;
+}
+
+# Tablet upwards
+@media (min-width: 768px) {
+  font-size: 14px;
+}
+
 body {
 	margin: 0;
 	padding: 0;
