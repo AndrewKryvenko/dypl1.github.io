@@ -74,12 +74,12 @@ for (let i = 0; i < minusBtns.length; i++) {
 
 let items = [];
 
-function toggleItem(btn, itemId, itemName, price, index) {
+function toggleItem(btn, itemId, price, index) {
     let itemIndex = items.findIndex(i => i.id === itemId);
     let quantity = parseInt(quantityDisplays[index].innerText);
 
     if (itemIndex === -1) {
-        let newItem = { id: itemId, itemName: itemName, price: price, quantity: quantity };
+        let newItem = { id: itemId, price: price, quantity: quantity };
         items.push(newItem);
         quantityDisplay.innerText = quantity;
     } else {
@@ -109,23 +109,23 @@ function toggleItem(btn, itemId, itemName, price, index) {
 Telegram.WebApp.onEvent("mainButtonClicked", function(){
     let data = {
         chat_id: chatId, // Передаем ID чата
-        items: items.map(item => ({id: item.id, itemName: item.itemName, price: item.price, quantity: item.quantity})),
+        items: items.map(item => ({id: item.id, price: item.price, quantity: item.quantity})),
         totalPrice: calculateTotalPrice(),
     };
     tg.sendData(JSON.stringify(data));
 });
 
 document.getElementById("btn1").addEventListener("click", function(){
-	toggleItem(this, "item1", "Гамбургер", 58);
+	toggleItem(this, "item1", 58);
 });
 document.getElementById("btn2").addEventListener("click", function(){
-	toggleItem(this, "item2", "Чізбургер", 68);
+	toggleItem(this, "item2", 68);
 });
 document.getElementById("btn3").addEventListener("click", function(){
-	toggleItem(this, "item3", "Дабл Чізбургер", 105);
+	toggleItem(this, "item3", 105);
 });
 document.getElementById("btn4").addEventListener("click", function(){
-	toggleItem(this, "item4", "Біг Мак", 125);
+	toggleItem(this, "item4", 125);
 });
 document.getElementById("btn5").addEventListener("click", function(){
 	toggleItem(this, "item5", 196);
