@@ -79,7 +79,7 @@ function toggleItem(btn, itemId, price, index) {
     let quantity = parseInt(quantityDisplays[index].innerText);
 
     if (itemIndex === -1) {
-        let newItem = { id: itemId, price: price, quantity: quantity };
+        let newItem = { id: itemId, itemName: itemName, price: price, quantity: quantity };
         items.push(newItem);
         quantityDisplay.innerText = quantity;
     } else {
@@ -116,16 +116,16 @@ Telegram.WebApp.onEvent("mainButtonClicked", function(){
 });
 
 document.getElementById("btn1").addEventListener("click", function(){
-	toggleItem(this, "item1", 58);
+	toggleItem(this, "item1", "Гамбургер", 58);
 });
 document.getElementById("btn2").addEventListener("click", function(){
-	toggleItem(this, "item2", 68);
+	toggleItem(this, "item2", "Чізбургер", 68);
 });
 document.getElementById("btn3").addEventListener("click", function(){
-	toggleItem(this, "item3", 105);
+	toggleItem(this, "item3", "Дабл Чізбургер", 105);
 });
 document.getElementById("btn4").addEventListener("click", function(){
-	toggleItem(this, "item4", 125);
+	toggleItem(this, "item4", "Біг Мак", 125);
 });
 document.getElementById("btn5").addEventListener("click", function(){
 	toggleItem(this, "item5", 196);
