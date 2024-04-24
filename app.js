@@ -424,5 +424,3 @@ document.getElementById("btn91").addEventListener("click", function(){
 document.getElementById("btn92").addEventListener("click", function(){
 	toggleItem(this, "item92", 72);
 });
-
-
