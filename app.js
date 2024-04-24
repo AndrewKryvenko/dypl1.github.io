@@ -74,7 +74,7 @@ for (let i = 0; i < minusBtns.length; i++) {
 
 let items = [];
 
-function toggleItem(btn, itemId, price, index) {
+function toggleItem(btn, itemId, itemName, price, index) {
     let itemIndex = items.findIndex(i => i.id === itemId);
     let quantity = parseInt(quantityDisplays[index].innerText);
 
