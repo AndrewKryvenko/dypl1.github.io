@@ -109,7 +109,7 @@ function toggleItem(btn, itemId, itemName, price, index) {
 Telegram.WebApp.onEvent("mainButtonClicked", function(){
     let data = {
         chat_id: chatId, // Передаем ID чата
-        items: items.map(item => ({id: item.id, price: item.price, quantity: item.quantity})),
+        items: items.map(item => ({id: item.id, itemName: item.itemName price: item.price, quantity: item.quantity})),
         totalPrice: calculateTotalPrice(),
     };
     tg.sendData(JSON.stringify(data));
